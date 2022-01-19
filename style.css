@@ -5,5 +5,11 @@ header, main {
 }
 
 button {
-  width: 80px;
+  padding: 12px;
+  width: 200px;
+  font-size: 17px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 3px 4px rgba(0, 0, 0, 0.30);
+
 }

@@ -1,20 +1,45 @@
-const turnOn = document.getElementById('turnOn');
-const turnOff = document.getElementById('turnOff');
-const lamp = document.getElementById('lamp');
+const botao = document.getElementById('botao');
+var isLigado = false;
 
-// cria o evento para trocar a imagem de desligada para ligada
+function isLampBroken () {
+  return lamp.src.indexOf('quebrada') > -1;
+}
+
 function lampOn () {
-  lamp.src = './img/ligada.jpg'
+  if (!isLampBroken ()){
+    lamp.src = './img/ligada.jpg';
+    botao.innerText = 'Desligar';
+  }
 }
 
-// quando for clicado o botão de 'Ligar' troca para a imagem da lâmpada ligada
-turnOn.addEventListener('click', lampOn);
-
-
-// cria o evento para trocar a imagem de ligada para desligada
 function lampOff () {
-  lamp.src = './img/desligada.jpg'
+  if (!isLampBroken ()) {
+    lamp.src = './img/desligada.jpg';
+    botao.innerText = 'Ligar';
+  }
 }
 
-// quando for clicado o botão de 'Desligar' troca para a imagem da lâmpada desligada
-turnOff.addEventListener('click', lampOff);
+function lampBroken () {
+    lamp.src = './img/quebrada.jpg';
+}
+
+function toggleLamp() {
+  if (isLigado) {
+    botao.innerText = "desligar";
+    lamp.src = './img/ligada.jpg';
+    isLigado = false;
+  } else {
+    botao.innerText = 'ligar';
+    lamp.src = './img/desligada.jpg';
+    isLigado = true;
+  }
+}
+
+// botao.addEventListener('click', lampOn);
+// botao.addEventListener('click', lampOff);
+// botao.addEventListener('mouseover', lampOn);
+// lamp.addEventListener('mouseleave', lampOff);
+lamp.addEventListener('dblclick', lampBroken);
+botao.addEventListener('click', toggleLamp)
+
+
