@@ -25,20 +25,17 @@ function lampBroken () {
 
 function toggleLamp() {
   if (isLigado) {
-    botao.innerText = "desligar";
+    botao.innerText = "Desligar";
     lamp.src = './img/ligada.jpg';
     isLigado = false;
   } else {
-    botao.innerText = 'ligar';
+    botao.innerText = 'Ligar';
     lamp.src = './img/desligada.jpg';
     isLigado = true;
   }
 }
 
-// botao.addEventListener('click', lampOn);
-// botao.addEventListener('click', lampOff);
-// botao.addEventListener('mouseover', lampOn);
-// lamp.addEventListener('mouseleave', lampOff);
+
 lamp.addEventListener('dblclick', lampBroken);
 botao.addEventListener('click', toggleLamp)
 
